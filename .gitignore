@@ -1,5 +1,6 @@
 .build
 .mbed
+.vscode
 projectfiles
 *.py*
 mbed-os
