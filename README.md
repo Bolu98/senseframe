@@ -19,3 +19,7 @@ Additional information can be found in the following `readme` files.
 - [Use the sample application](https://github.com/alexander3605/senseframe/tree/master/WebApp)
 - [Testing](https://github.com/alexander3605/senseframe/tree/master/testing)
 - [PCB and Case Design](https://github.com/alexander3605/senseframe/tree/master/other_resources)
+
+***
+
+![senseframe poster](https://github.com/alexander3605/senseframe/blob/master/images/senseframe_poster.jpg)
