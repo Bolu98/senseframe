@@ -67,10 +67,6 @@ class new_sensor: public Sensor{
 
 ### Selecting radio
 
-Mbed OS provides inherent support for a variety of modules. If your device is one of the those modules, you may skip this part. The correct radio type and pin set is already provided for the modules in the `target-overrides` field. For more information on supported modules, please refer to the [module support section](#module-support)
-
-If you are using an Mbed Enabled radio shield such as [Mbed SX1276 shield LoRa](https://os.mbed.com/components/SX1276MB1xAS/) or [Mbed SX1272 LoRa shield ](https://os.mbed.com/components/SX1272MB2xAS/) with any Mbed Enabled board, this part is relevant. You can use any Mbed Enabled board that comes with an arduino form factor.
-
 Please select your radio type by modifying the `lora-radio` field in `mbed_app.json` and providing a pin set if it is different from the default. For example:
 
 ```json
