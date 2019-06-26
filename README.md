@@ -8,6 +8,13 @@
 
 
 ***
+## Documentation
 To see the project documentation visit https://github.com/alexander3605/SenseFrame/wiki
 
 ***
+
+## Other Resources
+Additional information can be found in the following `readme` files.
+- [Configure the Node](https://github.com/alexander3605/senseframe/blob/master/Node)
+- [Use the sample application](https://github.com/alexander3605/senseframe/tree/master/WebApp)
+- [Testing](https://github.com/alexander3605/senseframe/tree/master/testing)
