@@ -1,5 +1,3 @@
-**This document explains how to configure the firmware for the nodes. For more detail on each file in the system please refer to the mbed repository.**
-
 # Sensor Configuration
 ## Period of Measurment
 The time period between each measurement is controlled by an integer number of seconds in the `main.cpp` file. Change the value defined by measurement_period at the top of the file.
