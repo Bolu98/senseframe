@@ -8,7 +8,7 @@ To download the casing follow the links in `CAD_model_for_prototype_casing` and 
 
 # Power System
 ## PCB
-To access the PCB design follow the link to the Circuit Maker project in `solar-power-circuit-and-pcb-design.txt`. This project contains a circuit schematic and a PCB design.
+To access the PCB design follow the link to the Circuit Maker project in `solar-power-circuit-and-pcb-design.txt`. This project contains a circuit schematic and a PCB design. This circuit design is based on the [STEVAL-ISV006V2](https://www.st.com/content/ccc/resource/technical/document/application_note/34/f8/03/2c/c0/39/4b/93/CD00292052.pdf/files/CD00292052.pdf/jcr:content/translations/en.CD00292052.pdf) which with minor changes to suit our requirements.
 
 The current PCB design implements 2 MPPT charge controllers in series to increase the output voltage as the prototype is running on 7-12V rather than 3.3V.
 
