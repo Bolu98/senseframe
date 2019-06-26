@@ -42,7 +42,7 @@ virtual data_item process(data_item data){ //virtual method to process data, def
 As before, then make sure that the sensor object is of the correct type in `main.cpp`.
 
 Below is a template for building a custom sensor class:
-```
+```c++
 class new_sensor: public Sensor{
     public:
         light_proximity_sensor (int address = 0x00) : Sensor(address){} //set I2C address (Ensure this is correct)
