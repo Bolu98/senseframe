@@ -7,4 +7,6 @@
 
 
 ***
-For more info about the project visit https://github.com/alexander3605/SenseFrame/wiki
+To see the project documentation visit https://github.com/alexander3605/SenseFrame/wiki
+
+***
