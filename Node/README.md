@@ -60,10 +60,10 @@ class new_sensor: public Sensor{
 
 
 
+***
 
 
-
-# Connectivity Configuration. 
+# Connectivity Configuration
 
 ### Selecting radio
 
