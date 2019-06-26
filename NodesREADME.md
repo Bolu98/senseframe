@@ -1,12 +1,18 @@
 **This document explains how to configure the firmware for the nodes. For more detail on each file in the system please refer to the mbed repository.**
 
 # Sensor Configuration
-## If the sensor already exists in the library of classes
+## Period of Measurment
+The time period between each measurement is controlled by an integer number of seconds in the `main.cpp` file. Change the value defined by measurement_period at the top of the file.
+```c++
+#define measurement_period 3     //period of data measurement in seconds
+```
+## Type of Sensor
+### If the sensor already exists in the library of classes
 Simply change line 39 in `main.cpp` by modifying the example_sensor type definition to the correct class name for your sensor.
 ```c++
 example_sensor sensor;
 ```
-## If you need to implement the sensor yourself
+### If you need to implement the sensor yourself
 Define a new class, in `sensorclasses.h`, for your sensor which inherits from the `Sensor` virtual class.
 
 Make sure that the `Sensor` constructor is called correctly with the I2C address of your sensor, for example the address of the temperature and humidity sensor is 0x45.
