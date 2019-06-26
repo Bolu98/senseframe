@@ -63,26 +63,7 @@ class new_sensor: public Sensor{
 
 
 
-# Example LoRaWAN application for Mbed-OS
-
-This is an example application based on `Mbed-OS` LoRaWAN protocol APIs. The Mbed-OS LoRaWAN stack implementation is compliant with LoRaWAN v1.0.2 specification. 
-
-## Getting started
-
-This application can work with any Network Server if you have correct credentials for the said Network Server. 
-
-### Download the application
-
-```sh
-$ mbed import mbed-os-example-lorawan
-$ cd mbed-os-example-lorawan
-
-#OR
-
-$ git clone git@github.com:ARMmbed/mbed-os-example-lorawan.git
-$ cd mbed-os-example-lorawan
-$ mbed deploy
-```
+# Connectivity Configuration. 
 
 ### Selecting radio
 
@@ -138,20 +119,20 @@ The Mbed OS LoRaWAN stack provides a lot of configuration controls to the applic
 
 The LoRaWAN protocol is subject to various country specific regulations concerning radio emissions. That's why the Mbed OS LoRaWAN stack provides a `LoRaPHY` class that you can use to implement any region specific PHY layer. Currently, the Mbed OS LoRaWAN stack provides 10 different country specific implementations of `LoRaPHY` class. Selection of a specific PHY layer happens at compile time. By default, the Mbed OS LoRaWAN stack uses `EU 868 MHz` PHY. An example of selecting a PHY can be:
 
-```josn
+```json
         "phy": {
             "help": "LoRa PHY region. 0 = EU868 (default), 1 = AS923, 2 = AU915, 3 = CN470, 4 = CN779, 5 = EU433, 6 = IN865, 7 = KR920, 8 = US915, 9 = US915_HYBRID",
             "value": "0"
         },
 ```
 
-### Duty cycling
+### Duty cycling and Transmission Frequency
 
 LoRaWAN v1.0.2 specifcation is exclusively duty cycle based. This application comes with duty cycle enabled by default. In other words, the Mbed OS LoRaWAN stack enforces duty cycle. The stack keeps track of transmissions on the channels in use and schedules transmissions on channels that become available in the shortest time possible. We recommend you keep duty cycle on for compliance with your country specific regulations. 
 
 However, you can define a timer value in the application, which you can use to perform a periodic uplink when the duty cycle is turned off. Such a setup should be used only for testing or with a large enough timer value. For example:
 
-```josn 
+```json 
 "target_overrides": {
 	"*": {
 		"lora.duty-cycle-on": false
@@ -160,50 +141,10 @@ However, you can define a timer value in the application, which you can use to p
 }
 ```
 
-## Module support
-
-Here is a nonexhaustive list of boards and modules that we have tested with the Mbed OS LoRaWAN stack.
-
-- MultiTech mDot.
-- MultiTech xDot.
-- LTEK_FF1705.
-- Advantech Wise 1510.
-- ST B-L072Z-LRWAN1 LoRa®Discovery kit (with muRata radio chip).
-
-## Compiling the application
-
-Use Mbed CLI commands to generate a binary for the application.
-For example:
-
-```sh
-$ mbed compile -m YOUR_TARGET -t ARM
-```
-
-## Running the application
-
-Drag and drop the application binary from `BUILD/YOUR_TARGET/ARM/mbed-os-example-lora.bin` to your Mbed enabled target hardware, which appears as a USB device on your host machine. 
-
-Attach a serial console emulator of your choice (for example, PuTTY, Minicom or screen) to your USB device. Set the baudrate to 115200 bit/s, and reset your board by pressing the reset button.
-
-You should see an output similar to this:
-
-```
-Mbed LoRaWANStack initialized 
-
- CONFIRMED message retries : 3 
-
- Adaptive data  rate (ADR) - Enabled 
-
- Connection - In Progress ...
-
- Connection - Successful 
-
- Dummy Sensor Value = 2.1 
-
- 25 bytes scheduled for transmission 
- 
- Message Sent to Network Server
-
+In case you do not want to use the LoRaWAN Duty Cycle, you can set the transmission period in the `node_settings.h` file. Change the value defined by transmission_period at the top of the file.
+```c++
+//Define period of transmission in seconds
+#define TRANSMISSION_PERIOD         15   
 ```
 
 ## [Optional] Adding trace library
@@ -216,31 +157,4 @@ To enable Mbed trace, add to your `mbed_app.json` the following fields:
             }
      }
 ```
-The trace is disabled by default to save RAM and reduce main stack usage (see chapter Memory optimization).
-
-**Please note that some targets with small RAM size (e.g. DISCO_L072CZ_LRWAN1 and MTB_MURATA_ABZ) mbed traces cannot be enabled without increasing the default** `"main_stack_size": 1024`**.**
-
-## [Optional] Memory optimization 
-
-Using `Arm CC compiler` instead of `GCC` reduces `3K` of RAM. Currently the application takes about `15K` of static RAM with Arm CC, which spills over for the platforms with `20K` of RAM because you need to leave space, about `5K`, for dynamic allocation. So if you reduce the application stack size, you can barely fit into the 20K platforms.
-
-For example, add the following into `config` section in your `mbed_app.json`:
-
-```
-"main_stack_size": {
-    "value": 2048
-}
-```
-
-Essentially you can make the whole application with Mbed LoRaWAN stack in 6K if you drop the RTOS from Mbed OS and use a smaller standard C/C++ library like new-lib-nano. Please find instructions [here](https://os.mbed.com/blog/entry/Reducing-memory-usage-with-a-custom-prin/).
- 
-
-For more information, please follow this [blog post](https://os.mbed.com/blog/entry/Reducing-memory-usage-by-tuning-RTOS-con/).
-
-
-### License and contributions
-
-The software is provided under Apache-2.0 license. Contributions to this project are accepted under the same license. Please see [contributing.md](CONTRIBUTING.md) for more info.
-
-This project contains code from other projects. The original license text is included in those source files. They must comply with our license guide.
-
+The trace is disabled by default to save RAM and reduce main stack usage.
