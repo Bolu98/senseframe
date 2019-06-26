@@ -8,14 +8,14 @@ To download the casing follow the links in `CAD_model_for_prototype_casing` and 
 
 # Power System
 ## PCB
-To access the PCB design follow the link to the Circuit Maker project in `solar-power-circuit-and-pcb-design.txt`.
+To access the PCB design follow the link to the Circuit Maker project in `solar-power-circuit-and-pcb-design.txt`. This project contains a circuit schematic and a PCB design.
 
-The current PCB design implements 2 MPPT charge controllers in series to increase the output voltage as the prototype is running on 7-12V rather than 3.3.
+The current PCB design implements 2 MPPT charge controllers in series to increase the output voltage as the prototype is running on 7-12V rather than 3.3V.
 
 The design is a 2 layer PCB with mostly through hole components except for the SPV1040 ICs which are only available in a surface mount TSSOP-8 package.
 
 ## Max Voltage and Max Current configuration
-The values of resistors that are noted on the schematic will produce a system which will charge a battery up to 7.8 V, with each charge controller set to half of this, and at a maximum of 50mA. These can be modified by changing the value or ratios of certian resistors.
+The values of resistors that are noted on the schematic will produce a system which will charge a battery up to 7.8 V at a maximum of 50mA, with each charge controller set to half of this, and at a maximum of 50mA. These can be modified by changing the value or ratios of certian resistors.
 ### Max Voltage
 There is a potential divider from the output which defines the maximum output voltage of each charge controller circuit with the following formula:
 
