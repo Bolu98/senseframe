@@ -4,11 +4,11 @@ The current PCB design implements 2 MPPT charge controllers in series to increas
 The design is a 2 layer PCB with mostly through hole components except for the SPV1040 ICs which are only available in a surface mount TSSOP-8 package.
 
 # Max Voltage and Max Current configuration
-The values of resistors that are noted on the schematic will produce a system which will charge a battery up to 8.4 V, with each charge controller set to half of this, and at a maximum of 50mA. These can be modified by changing the value or ratios of certian resistors.
+The values of resistors that are noted on the schematic will produce a system which will charge a battery up to 7.8 V, with each charge controller set to half of this, and at a maximum of 50mA. These can be modified by changing the value or ratios of certian resistors.
 ## Max Voltage
 There is a potential divider from the output which defines the maximum output voltage of each charge controller circuit with the following formula:
 
-`Vmax = (Ra/Rb)*1.25 -1`
+`Vmax = (Ra/Rb + 1)*1.25`
 
 Where for U0:
 * Ra -> R10
