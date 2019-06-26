@@ -1,12 +1,12 @@
 # Sensor Configuration
 ## Period of Measurment
-The time period between each measurement is controlled by an integer number of seconds in the `main.cpp` file. Change the value defined by measurement_period at the top of the file.
+The time period between each measurement is controlled by an integer number of seconds in the `node_settings.h` file. Change the value defined by measurement_period at the top of the file.
 ```c++
-#define measurement_period 3     //period of data measurement in seconds
+#define MEASUREMENT_PERIOD          3     
 ```
 ## Type of Sensor
 ### If the sensor already exists in the library of classes
-Simply change line 39 in `main.cpp` by modifying the example_sensor type definition to the correct class name for your sensor.
+Simply change the line in `main.cpp` by modifying the example_sensor type definition to the correct class name for your sensor.
 ```c++
 example_sensor sensor;
 ```
@@ -41,7 +41,22 @@ virtual data_item process(data_item data){ //virtual method to process data, def
 
 As before, then make sure that the sensor object is of the correct type in `main.cpp`.
 
-
+Below is a template for building a custom sensor class:
+```
+class new_sensor: public Sensor{
+    public:
+        light_proximity_sensor (int address = 0x00) : Sensor(address){} //set I2C address (Ensure this is correct)
+        void setup(){
+            //Add any setup required for the sensor here
+            }
+        data_item read_data(){
+            //Add code to read data from the sensor
+            }
+        data_item process(data_item data){ 
+            //Add any additional processing requried here
+            }
+    };
+```
 
 
 
