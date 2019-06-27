@@ -22,4 +22,9 @@ Additional information can be found in the following `README` files.
 
 ***
 
+### Project Poster
 ![senseframe poster](https://github.com/alexander3605/senseframe/blob/master/images/senseframe_poster.jpg)
+
+### Project Leaflet
+![leaflet_outside](https://github.com/alexander3605/senseframe/blob/master/images/leaflet_outside.jpg)
+![leaflet_inside](https://github.com/alexander3605/senseframe/blob/master/images/leaflet_inside.jpg)
