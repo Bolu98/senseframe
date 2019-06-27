@@ -19,7 +19,6 @@ nodeInfo = {                   ############           Enter Node information pro
         "dev_id" : "node1",
         "dev_addr" : "26012FDF"
     },
-
     "B" : {
         "dev_id" : "node2",
         "dev_addr" : "26012F6D"
@@ -29,15 +28,7 @@ nodeInfo = {                   ############           Enter Node information pro
         "dev_id" : "node3",
         "dev_addr" : "26012F8C"
     }
-
-
-
 }
-
-
-
-
-
 
 def update_log(msg, dev_id):    
     # append data to log

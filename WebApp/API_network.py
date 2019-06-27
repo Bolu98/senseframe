@@ -33,7 +33,7 @@ def initConnect(client, tls = False):
 
 # API initialize client for receiving
 # *** PROCESS-BLOCKING FUNCTION ***
-def initReceiver(topicList=["+/devices/+/up", "+/devices/+/events/activations"], clientID = "handle", qos=2, tls = False, user, password):
+def initReceiver(user, password, topicList=["+/devices/+/up", "+/devices/+/events/activations"], clientID = "handle", qos=2, tls = False):
     # remove write lock if it was left by past receiver
     # if os.path.isfile(LOG_LOCK):
     #     os.remove(LOG_LOCK)

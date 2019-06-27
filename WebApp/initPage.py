@@ -10,36 +10,6 @@ def get_status():
     with open("status.json", "r") as f:
         status_dict = json.load(f)
     return status_dict
-
-#read logged events from log.txt
-def get_log():
-  with open("log.txt") as f:
-    content = f.readlines()
-  #to remove whitespace characters like `\n` at the end of each line
-  content = [x.strip() for x in content] 
-  return content
-
-#get relevant information from log to display on Events Log
-def get_logStatus(log):
-  output = []
-  t_output = [] 
-  for m_event in log:
-
-    event = json.loads(m_event)
-    t_stamp = event["timeStamp"]
-  
-    #check what changed in the event by comparing event update-time and component update-time
-    if time.ctime(event["status"]["compass"]["lastUpdate"]) == t_stamp:
-      if event["status"]["compass"]["isOpen"] == 'yes':
-        was_open = "opened"
-      else :
-        was_open = "closed"
-      output.append("Door was "+was_open)
-      t_output.append(t_stamp)
-    elif time.ctime(event["status"]["accelerometer"]["lastIntrusion"]) == t_stamp:
-      output.append("Door was shaken ")
-      t_output.append(t_stamp)
-  return output, t_output
     
 
 
@@ -85,7 +55,6 @@ def get_post_javascript_data():
 @app.route("/")
 def home():
     status = get_status()
-    print("Home called")
     return render_template("display.html", **status) 
 
  
