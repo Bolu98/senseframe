@@ -2,8 +2,8 @@
 
 The WebApp consists of two separate scripts: receiver.py and initPage.py.  
  </br> 
-InitPage.py will open the web app at the IP : http://127.0.0.1:5000/  
-Receiver.py will generate logs for three nodes while continuously updating the JSON file from which the web page reads.
+`initPage.py` will open the web app at the IP : http://127.0.0.1:5000/  
+`receiver.py` will generate logs for three nodes while continuously updating the JSON (`status.json`) file from which the web page reads.
 
 ### Set up
 In order to run the web app, a few settings must be adjusted. 
