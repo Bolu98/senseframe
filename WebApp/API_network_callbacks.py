@@ -14,6 +14,31 @@ B_LOG_FILE = "./Blog.txt"
 C_LOG_FILE = "./Clog.txt"
 TEMPLATE_FILE = "./template.json"
 
+nodeInfo = {                   ############           Enter Node information provided by TTN here          #############
+    "A" : {
+        "dev_id" : "node1",
+        "dev_addr" : "26012FDF"
+    },
+
+    "B" : {
+        "dev_id" : "node2",
+        "dev_addr" : "26012F6D"
+    },
+
+    "C" :{        
+        "dev_id" : "node3",
+        "dev_addr" : "26012F8C"
+    }
+
+
+
+}
+
+
+
+
+
+
 def update_log(msg, dev_id):    
     # append data to log
     update = json.dumps(msg)
@@ -98,11 +123,11 @@ def on_message(client, userdata, message):
             print("* not found")
 
         # update logs
-        if (msg["dev_id"] == 'node2'):      # Node name - node 2
+        if (msg["dev_id"] == nodeInfo["B"]["dev_id"]):      # Node name - node 2
             dev_id = 'B'
             update_log(msg, dev_id)
 
-        elif (msg["dev_id"] == 'node3'):    # Node name - node 3
+        elif (msg["dev_id"] == nodeInfo["C"]["dev_id"]):    # Node name - node 3
             dev_id = 'C'
             update_log(msg, dev_id)
 
@@ -114,11 +139,11 @@ def on_message(client, userdata, message):
         msg["type"] = "joinrequest"
             
         # update logs
-        if (msg["dev_addr"] == '26012FDF'):     # Node address - node 2
+        if (msg["dev_addr"] == nodeInfo["B"]["dev_addr"]):     # Node address - node 2
             dev_id = 'B'
             update_log(msg, dev_id)
 
-        elif (msg["dev_addr"] == '26012F6D'):    # Node address  - node 3
+        elif (msg["dev_addr"] == nodeInfo["C"]["dev_addr"]):    # Node address  - node 3
             dev_id = 'C'
             update_log(msg, dev_id)
 
