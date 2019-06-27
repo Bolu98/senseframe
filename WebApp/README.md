@@ -40,7 +40,7 @@ nodeInfo = {
 After registering your devices, update the table above with the respective values, found on the overview page of each device on the TTN console.
 
 ### Using the Web App
-Once the set up is complete, the web app can be run by running both scripts simultaneously. The receiver script will generate logs, one per node. Each log contains all uplink and join messages, displaying some relevant data alongside that such as the transceiver settings, signal strength upon reception and the payload.  
+Once the set up is complete, the web app can be run by running both scripts simultaneously. The receiver script will generate logs, one per node. Each log contains all uplink and join messages, displaying some relevant data alongside that such as the transceiver settings, signal strength upon reception and the payload. The script will add on to the log every time the system sends a message. If you wish to start a new log, delete the current log, or rename the file. This will cause the script to generate a new log file for the appropriate node.  
 </br>
 The web app then displays the data being sent by the three nodes, along with the time at which the last packet was received, and connection status. The data is currently set to pressure, temperature and light intensity, however there is no processing done to the data received from the node, it is simply displayed in the box.  
 The web app deems a node to be disconnected when it had not received a message from said node for more than 1 minute.
