@@ -12,4 +12,4 @@ For example if the port used is COM13, simply execute
 `python node_log.py 13`
 
 ## Application Side
-**[TODO]**
+In order to generate logs on the application side it is only necessary to run the `receiver.py` script located in the [WebApp folder](https://github.com/alexander3605/senseframe/tree/master/WebApp). In order to generate the logs, it is not necessary to run the `initPage.py` script, but the set up contained in the [folder](https://github.com/alexander3605/senseframe/tree/master/WebApp) is still necessary.
