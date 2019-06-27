@@ -6,4 +6,7 @@ from API_network import initReceiver
 #                 B -> node2
 #                 C -> node3
 
-initReceiver()
+user = "senseapp"
+password = "ttn-account-v2.cjkyDxuXq-hUK4yaEYGozpOrAcH1byuua5UNR14Yr5w"
+
+initReceiver(user, password)

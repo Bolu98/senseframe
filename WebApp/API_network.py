@@ -5,7 +5,7 @@ import os
 from API_network_callbacks import *
 import ssl
 
-TLS_CERTIFICATE = "./certs/m2mqtt_ca.crt"
+
 
 def on_connect(client, userdata, flags, rc):
     if rc==0:
@@ -30,26 +30,10 @@ def initConnect(client, tls = False):
 
     return client
 
-# API Initialize client for sending
-def initSender(clientID = "PalomAlertSend", tls = False):
-    client = mqtt.Client(clientID)
-    client = initConnect(client, tls)
-    return client
-
-
-
-# API for sending a message
-def send(client, msg, topic="PalomAlert/test", qos=0):
-    pLoad = json.dumps(msg)
-    client.publish(topic=topic, payload=pLoad, qos=qos)
-    client.loop(10,20)
-
-
-
 
 # API initialize client for receiving
 # *** PROCESS-BLOCKING FUNCTION ***
-def initReceiver(topicList=["+/devices/+/up", "+/devices/+/events/activations"], clientID = "handle", qos=2, tls = False):
+def initReceiver(topicList=["+/devices/+/up", "+/devices/+/events/activations"], clientID = "handle", qos=2, tls = False, user, password):
     # remove write lock if it was left by past receiver
     # if os.path.isfile(LOG_LOCK):
     #     os.remove(LOG_LOCK)
@@ -63,7 +47,7 @@ def initReceiver(topicList=["+/devices/+/up", "+/devices/+/events/activations"],
     client.on_connect=on_connect
 
     # connect to broker
-    client.username_pw_set("senseapp", "ttn-account-v2.cjkyDxuXq-hUK4yaEYGozpOrAcH1byuua5UNR14Yr5w")
+    client.username_pw_set(user, password)
     client = initConnect(client)
 
     # subscribe to topics

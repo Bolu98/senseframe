@@ -13,7 +13,6 @@ A_LOG_FILE = "./Alog.txt"
 B_LOG_FILE = "./Blog.txt"
 C_LOG_FILE = "./Clog.txt"
 TEMPLATE_FILE = "./template.json"
-awayFromHome = False
 
 def update_log(msg, dev_id):    
     # append data to log
@@ -98,12 +97,12 @@ def on_message(client, userdata, message):
         else:
             print("* not found")
 
-        # update JSON
-        if (msg["dev_id"] == 'node2'):
+        # update logs
+        if (msg["dev_id"] == 'node2'):      # Node name - node 2
             dev_id = 'B'
             update_log(msg, dev_id)
 
-        elif (msg["dev_id"] == 'node3'):
+        elif (msg["dev_id"] == 'node3'):    # Node name - node 3
             dev_id = 'C'
             update_log(msg, dev_id)
 
@@ -114,12 +113,12 @@ def on_message(client, userdata, message):
     elif "activations" in topic:
         msg["type"] = "joinrequest"
             
-        # update JSON
-        if (msg["dev_addr"] == '26012FDF'):
+        # update logs
+        if (msg["dev_addr"] == '26012FDF'):     # Node address - node 2
             dev_id = 'B'
             update_log(msg, dev_id)
 
-        elif (msg["dev_addr"] == '26012F6D'):
+        elif (msg["dev_addr"] == '26012F6D'):    # Node address  - node 3
             dev_id = 'C'
             update_log(msg, dev_id)
 
@@ -127,20 +126,6 @@ def on_message(client, userdata, message):
             dev_id = 'A'
             update_log(msg, dev_id)
 
-
-
-    # update JSON
-    if (msg["dev_eui"] == 'node2'):
-        dev_id = 'B'
-        update_log(msg, dev_id)
-
-    elif (msg["dev_eui"] == 'node3'):
-        dev_id = 'C'
-        update_log(msg, dev_id)
-
-    else:
-        dev_id = 'A'
-        update_log(msg, dev_id)
 
     currTime = time.ctime()
 
