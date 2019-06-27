@@ -41,7 +41,7 @@ light_proximity_sensor sensor;
 // ENTRY POINT FOR MAIN FUNCTION
 int main() {
     
-    set_time(0); //initialize time (absolute time is wrong on nodes, IMPROVEMENT: send exact time wirelessly to nodes)
+    set_time(0); //initialize time
     printf("\n\n\n\n================================\n================================\n\r");
     printf("Starting....\r\n");
     #if TEST_MODE
