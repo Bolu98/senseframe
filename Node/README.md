@@ -1,14 +1,27 @@
 # Sensor Configuration
 ## Period of Measurment
-The time period between each measurement is controlled by an integer number of seconds in the `node_settings.h` file. Change the value defined by measurement_period at the top of the file.
+The time period between each measurement is controlled by an integer number of seconds in the `node_settings.h` file. Change the value defined by measurement_period in the file.
 ```c++
 #define MEASUREMENT_PERIOD          3     
 ```
+## The `data_item` Structure
+The system uses a data structure names `data_item`.
+
+A `data_item` has two elements:
+* `value` - a float which holds the value of a sensor reading
+* `timestamp` - a time_t value which holds the time at which the reading was taken.
+
+_Note that currently setting the time on the nodes remotely is not implemented and so time outputs are not accurate at this point._ 
+
 ## Type of Sensor
 ### If the sensor already exists in the library of classes
 Simply change the line in `main.cpp` by modifying the example_sensor type definition to the correct class name for your sensor.
 ```c++
-example_sensor sensor;
+////////////////////////////////////////////////
+/////////// DEFINE SENSOR USED HERE ////////////
+////////////////////////////////////////////////
+
+light_proximity_sensor sensor;
 ```
 ### If you need to implement the sensor yourself
 Define a new class, in `sensorclasses.h`, for your sensor which inherits from the `Sensor` virtual class.
@@ -18,7 +31,7 @@ Make sure that the `Sensor` constructor is called correctly with the I2C address
 temp_humid_sensor(int address = 0x45) : Sensor(address){}   //set I2C address
 ```
 
-If a library of functions for the sensor has been developed sepeartely it is possible to implement them into the framework or you can implement the following functions yourself in your class:
+If a library for the sensor has been developed sepeartely it is possible to implement them into the framework or you can implement the following methods yourself:
 
 * `setup` - run once when device is powered on, use for any initialisation necessary. Defaults to doing nothing.
 ```c++
@@ -45,7 +58,7 @@ Below is a template for building a custom sensor class:
 ```c++
 class new_sensor: public Sensor{
     public:
-        light_proximity_sensor (int address = 0x00) : Sensor(address){} //set I2C address (Ensure this is correct)
+        new_sensor (int address = 0x00) : Sensor(address){} //set I2C address (Ensure this is correct)
         void setup(){
             //Add any setup required for the sensor here
             }
