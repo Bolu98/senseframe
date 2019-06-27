@@ -58,7 +58,7 @@ Below is a template for building a custom sensor class:
 ```c++
 class new_sensor: public Sensor{
     public:
-        light_proximity_sensor (int address = 0x00) : Sensor(address){} //set I2C address (Ensure this is correct)
+        new_sensor (int address = 0x00) : Sensor(address){} //set I2C address (Ensure this is correct)
         void setup(){
             //Add any setup required for the sensor here
             }
