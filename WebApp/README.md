@@ -44,3 +44,7 @@ Once the set up is complete, the web app can be run by running both scripts simu
 </br>
 The web app then displays the data being sent by the three nodes, along with the time at which the last packet was received, and connection status. The data is currently set to pressure, temperature and light intensity, however there is no processing done to the data received from the node, it is simply displayed in the box.  
 The web app deems a node to be disconnected when it had not received a message from that node for more than 1 minute.
+
+
+### Example of page running
+![alt text](https://github.com/alexander3605/senseframe/blob/master/images/WebAppScreenshot.png "WebApp Screenshot" )
