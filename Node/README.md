@@ -15,13 +15,13 @@ _Note that currently setting the time on the nodes remotely is not implemented a
 
 ## Type of Sensor
 ### If the sensor already exists in the library of classes
-Simply change the line in `main.cpp` by modifying the example_sensor type definition to the correct class name for your sensor.
+Simply change the line in `main.cpp` by modifying the `example_sensor` type definition to the correct class name for your sensor.
 ```c++
 ////////////////////////////////////////////////
 /////////// DEFINE SENSOR USED HERE ////////////
 ////////////////////////////////////////////////
 
-light_proximity_sensor sensor;
+example_sensor sensor;
 ```
 ### If you need to implement the sensor yourself
 Define a new class, in `sensorclasses.h`, for your sensor which inherits from the `Sensor` virtual class.
