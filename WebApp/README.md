@@ -18,7 +18,7 @@ These can be found in the overview page of your application on The Things Networ
  
 Instructions on how to set up an application on TTN, [here](https://github.com/alexander3605/SenseFrame/wiki/3.---How-To-Use-The-Framework#the-gateway-and-application).
 
-The following dictionary must also be updated in API_network_callbacks.py:
+The following dictionary must also be updated in `API_network_callbacks.py`:
 
 ```
 nodeInfo = {       
